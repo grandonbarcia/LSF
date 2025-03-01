@@ -1,6 +1,6 @@
 'use client';
 
-import { memo, useMemo, useState } from 'react';
+import { useMemo, useState } from 'react';
 
 type Clip = {
   Id: string;
@@ -38,7 +38,7 @@ export default function DisplayPost({ twitchClips }: TwitchClips) {
   const selectedClip =
     'flex items-center py-2 bg-gradient-to-r from-purple-500 to-purple-900 text-white rounded-xl cursor-pointer';
 
-  const ListOfClips = memo(function ListOfClips() {
+  const ListOfClips = function ListOfClips() {
     return (
       <div className="h-[720px] pl-5 overflow-scroll overflow-x-hidden rounded-xl ">
         {twitchClips.map((clip, i) => (
@@ -59,17 +59,13 @@ export default function DisplayPost({ twitchClips }: TwitchClips) {
         ))}
       </div>
     );
-  });
+  };
 
   const ShowClip = () => {
-    const { Id, title } = twitchClips[clipNum];
+    const { Id } = twitchClips[clipNum];
 
     return (
       <div>
-        <div className="w-[1280px]">
-          <p className="text-4xl font-bold break-all">{title}</p>
-        </div>
-
         <iframe
           allow="autoplay"
           className=" rounded-xl"
@@ -77,11 +73,27 @@ export default function DisplayPost({ twitchClips }: TwitchClips) {
           height="720"
           width="1280"
         ></iframe>
+      </div>
+    );
+  };
 
-        <div className="flex justify-between">
+  const ListOfClipsMemo = useMemo(() => <ListOfClips />, []);
+  const { title } = twitchClips[clipNum];
+
+  return (
+    <div className="">
+      <div className="flex">
+        <ShowClip />
+        {ListOfClipsMemo}
+      </div>
+      <div className="flex justify-between w-[1280px] py-2">
+        <p className="text-4xl font-bold break-all uppercase w-5/6 overflow-auto ">
+          {title}
+        </p>
+        <div className="flex justify-end w-1/6">
           <div
             onClick={prevClip}
-            className="rounded relative inline-flex group items-center justify-center px-3.5 py-2 m-1 cursor-pointer border-b-4 border-l-2 active:border-purple-600 active:shadow-none shadow-lg bg-gradient-to-tr from-purple-600 to-purple-500 border-purple-700 text-white"
+            className="rounded h-[50px] relative inline-flex group items-center justify-center px-3.5 py-2 m-1 cursor-pointer border-b-4 border-l-2 active:border-purple-600 active:shadow-none shadow-lg bg-gradient-to-tr from-purple-600 to-purple-500 border-purple-700 text-white"
           >
             <span className="absolute w-0 h-0 transition-all duration-300 ease-out bg-white rounded-full group-hover:w-32 group-hover:h-32 opacity-10"></span>
             <span className="relative">Prev</span>
@@ -89,22 +101,14 @@ export default function DisplayPost({ twitchClips }: TwitchClips) {
 
           <div
             onClick={nextClip}
-            className="rounded relative inline-flex group items-center justify-center px-3.5 py-2 m-1 cursor-pointer border-b-4 border-l-2 active:border-purple-600 active:shadow-none shadow-lg bg-gradient-to-tr from-purple-600 to-purple-500 border-purple-700 text-white"
+            className="rounded h-[50px] relative inline-flex group items-center justify-center px-3.5 py-2 m-1 cursor-pointer border-b-4 border-l-2 active:border-purple-600 active:shadow-none shadow-lg bg-gradient-to-tr from-purple-600 to-purple-500 border-purple-700 text-white"
           >
             <span className="absolute w-0 h-0 transition-all duration-300 ease-out bg-white rounded-full group-hover:w-32 group-hover:h-32 opacity-10"></span>
             <span className="relative">Next</span>
           </div>
         </div>
       </div>
-    );
-  };
-
-  const ListOfClipsMemo = useMemo(() => <ListOfClips />, []);
-
-  return (
-    <div className="flex items-center min-h-screen  ">
-      <ShowClip />
-      {ListOfClipsMemo}
+      <div className="w-[1280px] flex justify-between"></div>
     </div>
   );
 }
