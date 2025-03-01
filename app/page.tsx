@@ -1,7 +1,7 @@
 import DisplayPost from './components/DisplayPost';
 
-async function getData({ sortby, time }: { sortby: string; time: string }) {
-  const url = `https://www.reddit.com/r/LivestreamFail/${sortby}/?t=${time}.json`;
+async function getData(sortBy: string, time: string) {
+  const url = `https://www.reddit.com/r/LivestreamFail/${sortBy}/.json?t=${time}`;
   const response = await fetch(url);
   const json = await response.json();
   return [...json.data.children];
@@ -58,11 +58,11 @@ function findAllTwitchClips(posts: Posts[]) {
 }
 
 export default async function Home() {
-  const posts = await getData();
+  const posts = await getData('hot', 'today');
   const twitchClips = findAllTwitchClips(posts);
 
   return (
-    <div className="px-20">
+    <div className="px-20 flex items-center justify-center min-h-screen">
       <DisplayPost twitchClips={twitchClips} />
     </div>
   );
