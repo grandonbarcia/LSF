@@ -36,7 +36,11 @@ export default function DisplayPost({
     <div>
       <div className="flex">
         <ShowClip Id={Id} />
-        <ListOfClips twitchClips={twitchClips} setClipNum={setClipNum} />
+        <ListOfClips
+          twitchClips={twitchClips}
+          setClipNum={setClipNum}
+          clipNum={clipNum}
+        />
       </div>
       <div className="flex justify-between w-[1280px] py-2">
         <p className="text-4xl font-bold uppercase w-5/6 overflow-auto text-wrap ">
