@@ -1,4 +1,4 @@
-import React, { memo, Dispatch, SetStateAction, useState } from 'react';
+import React, { memo, Dispatch, SetStateAction } from 'react';
 
 import type { TwitchClips } from '../utils/types';
 
