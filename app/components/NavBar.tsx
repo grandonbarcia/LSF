@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 
 const NavBar = () => {
   return (
@@ -19,7 +20,7 @@ const NavBar = () => {
         Today{"'"}s Hot Livestream Fail Clips
       </div>
 
-      {/* <svg
+      <svg
         xmlns="http://www.w3.org/2000/svg"
         id="menu-button"
         className="h-6 w-6 cursor-pointer md:hidden block"
@@ -29,13 +30,13 @@ const NavBar = () => {
       >
         <path
           strokeLinecap="round"
-          stroke-linejoin="round"
-          stroke-width="2"
+          strokeLinejoin="round"
+          strokeWidth="2"
           d="M4 6h16M4 12h16M4 18h16"
         />
-      </svg> */}
+      </svg>
 
-      {/* <div
+      <div
         className="hidden w-full md:flex md:items-center md:w-auto"
         id="menu"
       >
@@ -48,27 +49,47 @@ const NavBar = () => {
               md:pt-0"
         >
           <li>
-            <a className="md:p-4 py-2 block hover:text-purple-400" href="#">
+            <Link
+              className="md:p-4 py-2 block hover:text-purple-400"
+              href="/best"
+            >
+              Best
+            </Link>
+          </li>
+          <li>
+            <Link
+              className="md:p-4 py-2 block hover:text-purple-400"
+              href="/hot"
+            >
               Hot
-            </a>
+            </Link>
           </li>
           <li>
-            <a className="md:p-4 py-2 block hover:text-purple-400" href="#">
+            <Link
+              className="md:p-4 py-2 block hover:text-purple-400"
+              href="/new"
+            >
               New
-            </a>
+            </Link>
           </li>
           <li>
-            <a className="md:p-4 py-2 block hover:text-purple-400" href="#">
+            <Link
+              className="md:p-4 py-2 block hover:text-purple-400"
+              href="/top"
+            >
               Top
-            </a>
+            </Link>
           </li>
           <li>
-            <a className="md:p-4 py-2 block hover:text-purple-400" href="#">
+            <Link
+              className="md:p-4 py-2 block hover:text-purple-400"
+              href="/rising"
+            >
               Rising
-            </a>
+            </Link>
           </li>
         </ul>
-      </div> */}
+      </div>
     </nav>
   );
 };
