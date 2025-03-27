@@ -6,6 +6,7 @@ import type { TwitchClips } from '../utils/types';
 import ControlButton from './ControlButton';
 import ListOfClips from './ListOfClips';
 import ShowClip from './ShowClip';
+import ShowComments from './ShowComments';
 
 export default function DisplayPost({
   twitchClips,
@@ -30,7 +31,7 @@ export default function DisplayPost({
     }
   };
 
-  const { title, Id } = twitchClips[clipNum];
+  const { title, Id, permalink } = twitchClips[clipNum];
 
   return (
     <div>
@@ -50,6 +51,9 @@ export default function DisplayPost({
           <ControlButton type={'prev'} goTo={prevClip} />
           <ControlButton type={'next'} goTo={nextClip} />
         </div>
+      </div>
+      <div>
+        <ShowComments permalink={permalink} />
       </div>
     </div>
   );

@@ -40,6 +40,7 @@ export function findAllTwitchClips(posts: Posts[]) {
         ups: posts[i].data.ups,
         downs: posts[i].data.downs,
         thumbnail: posts[i].data.thumbnail,
+        permalink: posts[i].data.permalink,
       };
 
       twitchClips.push(currClip);

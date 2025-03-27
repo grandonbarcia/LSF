@@ -11,6 +11,7 @@ export type Posts = {
     ups: number;
     downs: number;
     thumbnail: string;
+    permalink: string;
   };
   kind: string;
 };
@@ -21,6 +22,7 @@ export type Clip = {
   ups: number;
   downs: number;
   thumbnail: string;
+  permalink: string;
 };
 
 export type TwitchClips = Clip[];
