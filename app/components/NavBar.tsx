@@ -1,5 +1,4 @@
-import React from 'react';
-import Link from 'next/link';
+import Links from './Links';
 
 const NavBar = () => {
   return (
@@ -48,46 +47,7 @@ const NavBar = () => {
               md:justify-between 
               md:pt-0"
         >
-          <li>
-            <Link
-              className="md:p-4 py-2 block hover:text-purple-400"
-              href="/best"
-            >
-              Best
-            </Link>
-          </li>
-          <li>
-            <Link
-              className="md:p-4 py-2 block hover:text-purple-400"
-              href="/hot"
-            >
-              Hot
-            </Link>
-          </li>
-          <li>
-            <Link
-              className="md:p-4 py-2 block hover:text-purple-400"
-              href="/new"
-            >
-              New
-            </Link>
-          </li>
-          <li>
-            <Link
-              className="md:p-4 py-2 block hover:text-purple-400"
-              href="/top"
-            >
-              Top
-            </Link>
-          </li>
-          <li>
-            <Link
-              className="md:p-4 py-2 block hover:text-purple-400"
-              href="/rising"
-            >
-              Rising
-            </Link>
-          </li>
+          <Links />
         </ul>
       </div>
     </nav>
