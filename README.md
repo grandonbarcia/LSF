@@ -1,36 +1,38 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# LSF Clip View
 
-## Getting Started
+LSF Cip viewer is a tool I built that fetches all the newest clip lips from the subreddit /r/livestreamfails and display them all in a youtube-style format
 
-First, run the development server:
+## Motivation
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+I wanted to have a place where I can watch all the newest clips in one tab without having open and close a new tab to view each clip
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Tech/framework used
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Built with:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- [NextJS](https://github.com/vercel/next.js/)
+- [Tailwind](https://github.com/tailwindlabs/tailwindcss)
 
-## Learn More
+## Launching the Server
 
-To learn more about Next.js, take a look at the following resources:
+To launch the application, please run the following command from the project root folder:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+`npm start`
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Screenshots
 
-## Deploy on Vercel
+Users are prompted a video player and a list of the clips to choose from
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+![](/public/img/LSF1.PNG)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Users can click on either the clip they want to watch from the list or use control buttons
+
+![](/public/img/LSF2.PNG)
+
+Users can click on the links in the navbar to switch categories
+
+![](/public/img/LSF3.PNG)
+
+Comment section for each clip can be found under the video player
+
+![](/public/img/LSF4.PNG)
