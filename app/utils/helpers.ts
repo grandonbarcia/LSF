@@ -1,5 +1,12 @@
 import type { Posts } from './types';
 
+export async function getData(category: string) {
+  const url = `https://www.reddit.com/r/LivestreamFail/${category}.json`;
+  const response = await fetch(url);
+  const json = await response.json();
+  return [...json.data.children];
+}
+
 function isFirstLetterCapital(str: string) {
   if (!str) {
     return false; // Handle empty strings
@@ -33,6 +40,7 @@ export function findAllTwitchClips(posts: Posts[]) {
         ups: posts[i].data.ups,
         downs: posts[i].data.downs,
         thumbnail: posts[i].data.thumbnail,
+        permalink: posts[i].data.permalink,
       };
 
       twitchClips.push(currClip);
