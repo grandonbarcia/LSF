@@ -1,6 +1,6 @@
 # LSF Clip Viewer
 
-LSF Cip viewer is a tool I built that fetches all the newest clip lips from the subreddit /r/livestreamfails and display them all in a youtube-style format
+LSF Cip viewer is a tool I built that fetches all the newest clip from the subreddit /r/livestreamfails and display them all in a youtube-style format
 
 ## Motivation
 
