@@ -17,7 +17,7 @@ const Links = () => {
   return (
     <>
       {categories.map((category, i) => (
-        <li key={i}>
+        <li key={category}>
           <Link
             onClick={() => handleClick(i)}
             className={select[i] ? selected : unselected}
