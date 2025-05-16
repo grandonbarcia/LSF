@@ -1,7 +1,9 @@
-import React, { memo, Dispatch, SetStateAction } from 'react';
+'use client';
 
+import React, { memo, Dispatch, SetStateAction } from 'react';
 import type { TwitchClips } from '../utils/types';
 
+import { Img } from './Img';
 const ListOfClips = ({
   twitchClips,
   setClipNum,
@@ -27,11 +29,7 @@ const ListOfClips = ({
             setClipNum(currClip);
           }}
         >
-          <img
-            className="rounded-xl pl-2"
-            src={clip.thumbnail}
-            alt={'thumbnail'}
-          />
+          <Img src={clip.thumbnail} />
           <span className="font-bold pl-3 pr-2 ">{clip.title}</span>
         </div>
       ))}

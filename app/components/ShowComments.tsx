@@ -8,7 +8,8 @@ const ShowComments = ({ permalink }: { permalink: string }) => {
 
   function htmlDecode(input: string) {
     const doc = new DOMParser().parseFromString(input, 'text/html');
-    return doc.documentElement.textContent;
+    const str = doc.documentElement.textContent;
+    return str;
   }
   useEffect(() => {
     const fetchData = async () => {
@@ -17,7 +18,6 @@ const ShowComments = ({ permalink }: { permalink: string }) => {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
       const json = await response.json();
-      console.log(json[1].data.children);
       setData(json[1].data.children);
       setLoading(false);
     };
@@ -63,13 +63,15 @@ const ShowComments = ({ permalink }: { permalink: string }) => {
   return (
     <div className="w-[1080px]">
       {data.map(
-        (
-          comment: {
-            data: { author: string; created_utc: number; body_html: string };
-          },
-          i
-        ) => (
-          <div className="py-5" key={i}>
+        (comment: {
+          data: {
+            author: string;
+            created_utc: number;
+            body_html: string;
+            id: string;
+          };
+        }) => (
+          <div className="py-5" key={comment.data.id}>
             <div>
               @<span className="font-semibold">{comment.data.author}</span>
               <span className="px-3">|</span>
@@ -79,7 +81,7 @@ const ShowComments = ({ permalink }: { permalink: string }) => {
             <div
               className="pl-3 py-1"
               dangerouslySetInnerHTML={{
-                __html: htmlDecode(comment.data.body_html),
+                __html: `${htmlDecode(comment.data.body_html)}`,
               }}
             ></div>
           </div>
