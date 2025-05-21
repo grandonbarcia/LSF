@@ -1,5 +1,5 @@
 import { HTMLProps, useState } from 'react';
-
+import Image from 'next/image';
 /**
  * We extend `<img>`'s properties as we want our
  * component to act as a drop-in replacement for it
@@ -23,15 +23,23 @@ export function Img(props: ImgProps) {
 
   if (isBroken) {
     return (
-      <img
+      <Image
         src={'./img/twitch.jpg'}
         alt="fallback"
-        width={'150px'}
-        height={'100px'}
+        width={150}
+        height={100}
         className="rounded"
       />
     );
   }
 
-  return <img onError={handleError} {...props} />;
+  return (
+    <Image
+      onError={handleError}
+      alt={props.alt ?? ''}
+      width={150}
+      height={100}
+      src={props.src ?? ''}
+    />
+  );
 }
