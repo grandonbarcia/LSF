@@ -13,7 +13,7 @@ async function getData() {
 
 export default async function Home() {
   const posts = await getData();
-  const twitchClips = findAllTwitchClips(posts);
+  const twitchClips = await findAllTwitchClips(posts);
 
   return (
     <div className="px-20">

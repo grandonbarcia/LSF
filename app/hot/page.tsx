@@ -6,7 +6,7 @@ import { findAllTwitchClips, getData } from '../utils/helpers';
 
 export default async function Hot() {
   const posts = await getData('hot');
-  const twitchClips = findAllTwitchClips(posts);
+  const twitchClips = await findAllTwitchClips(posts);
 
   return (
     <div className="px-20">
