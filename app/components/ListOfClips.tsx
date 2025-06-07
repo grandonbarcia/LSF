@@ -30,6 +30,7 @@ const ListOfClips = ({
           }}
         >
           <Img src={clip.thumbnail} />
+
           <span className="font-bold pl-3 pr-2 ">{clip.title}</span>
         </div>
       ))}

@@ -21,10 +21,10 @@ export function Img(props: ImgProps) {
     setIsBroken(true);
   }
 
-  if (isBroken) {
+  if (props.src === 'nsfw' || props.src === 'default' || isBroken) {
     return (
       <Image
-        src={'./img/twitch.jpg'}
+        src={'/img/twitch.jpg'}
         alt="fallback"
         width={150}
         height={100}

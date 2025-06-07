@@ -1,7 +1,6 @@
 'use client';
 
 import { useState } from 'react';
-
 import type { TwitchClips } from '../utils/types';
 import ControlButton from './ControlButton';
 import ListOfClips from './ListOfClips';
