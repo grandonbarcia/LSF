@@ -23,7 +23,7 @@ function trimClipID(str: string) {
   return str.split('?')[0];
 }
 
-export function findAllTwitchClips(posts: Posts[]) {
+export async function findAllTwitchClips(posts: Posts[]) {
   const twitchClips = [];
 
   for (let i = 0; i < posts.length; i++) {
