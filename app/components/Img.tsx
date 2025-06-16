@@ -21,7 +21,7 @@ export function Img(props: ImgProps) {
     setIsBroken(true);
   }
 
-  if (props.src === 'nsfw' || props.src === 'default' || isBroken) {
+  if (typeof props.src === 'string' || isBroken) {
     return (
       <Image
         src={'/img/twitch.jpg'}
